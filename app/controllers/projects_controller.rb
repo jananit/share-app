@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 	end
 
 	  def create
-    @project = Project.new(params[:product])
+    @project = Project.new(params[:project])
     if @project.save
       flash[:notice] = "Successfully created product."
       redirect_to @project
