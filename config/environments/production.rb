@@ -15,7 +15,7 @@ FileSharingApp::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -64,4 +64,12 @@ FileSharingApp::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => "janani_development",
+    :access_key_id => "AKIAJYBWIXLV3SVXG7PA",
+    :secret_access_key => "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"
+  }
+}
 end
