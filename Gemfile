@@ -31,6 +31,7 @@ group :production do
 end
 gem 'therubyracer'
 gem 'heroku'
+gem "paperclip"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
