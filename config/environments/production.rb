@@ -66,6 +66,8 @@ FileSharingApp::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.paperclip_defaults = {
   :storage => :s3,
+  :path => "/image/:id/:filename",
+
   :s3_credentials => {
     :bucket => "janani_development",
     :access_key_id => "AKIAJYBWIXLV3SVXG7PA",
