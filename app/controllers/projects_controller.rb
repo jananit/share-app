@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Successfully created product."
       redirect_to @project
     else
+      @errors = @project.errors[:avatar]
       render :action => 'new'
     end
   end
