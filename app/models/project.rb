@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  require 'bitly'
  attr_accessible  :avatar
 
   has_attached_file :avatar, styles: {
@@ -12,15 +13,10 @@ class Project < ActiveRecord::Base
 validates_attachment :avatar, :presence => {:message=>"Please choose a file from your system and then press upload."},
   :content_type => { :content_type => /(image\/(jpeg|jpg|gif|png))|(application\/(msword|vnd.oasis.opendocument.text|pdf))/ ,:message =>"Invalid Format" },
   :size => { :in => 0..20.megabytes,:message =>"File Should less than 20 MB  " }
-def download_url
-    s3 = AWS::S3.new
-    bucket = s3.buckets['janani_development']
-    object = bucket.objects["AKIAJYBWIXLV3SVXG7PA"]
-    object.url_for(:get, {
-      expires: 10.minutes,
-      response_content_disposition: 'attachment;'
-    }).to_s
-  end
 
+def get_shorten_url
+   bitly = Bitly.client
+ return bitly.shorten(avatar.url).short_url
+end
 
 end

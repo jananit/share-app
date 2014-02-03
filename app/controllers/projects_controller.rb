@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
     end
   end
   def show
-  	@project = Project.find(params[:id])
+  	project = Project.find(params[:id])
+    @url = project.get_shorten_url
   end
 end
