@@ -22,6 +22,8 @@ end
 gem 'jquery-rails'
 gem 'thin'
 
+gem 'bitly'
+
 group :development,:test do
  gem 'mysql2'
 end
