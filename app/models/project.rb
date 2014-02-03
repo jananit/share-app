@@ -16,6 +16,7 @@ validates_attachment :avatar, :presence => {:message=>"Please choose a file from
 
 def get_shorten_url
    bitly = Bitly.client
+   avatar.expiring_url(2.minutes)
  return bitly.shorten(avatar.url).short_url
 end
 
