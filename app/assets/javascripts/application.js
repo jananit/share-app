@@ -13,3 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+// $(function() {
+//   // Handler for .ready() called.
+//   $( "#upload_button" ).on( "click", function() {
+// $(this).val("uploading......")
+//   $( '#loading-image' ).toggle(); 
+// });
+
+// });
+
+$(function() {
+    $('#upload_button').click(function() {
+       $("input[type='submit']").attr('disabled',true);
+       $(this).val("uploading......")
+       $(this).closest('form').submit();
+       $( '#loading-image' ).toggle(); 
+       return false;
+    });
+$('input:submit').attr('disabled',false);
+});

@@ -6,7 +6,8 @@ class Project < ActiveRecord::Base
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
-  }
+  }, :s3_headers => { 'Cache-Control' => 'max-age=315576000', 'Expires' => 1.minutes.from_now } 
+    
 
 	# validates_attachment_content_type :avatar, :content_type => /(image\/(jpeg|jpg|gif|png))/, :message=>"Sorry - invalid file type. Please upload a .jpg, .gif or .png"
 	  # validates_attachment :avatar, :content_type => { :content_type => "image/jpg" }
@@ -16,8 +17,8 @@ validates_attachment :avatar, :presence => {:message=>"Please choose a file from
 
 def get_shorten_url
    bitly = Bitly.client
-   avatar.url(:expires_in => 2.minutes)
- return bitly.shorten(avatar.url).short_url
+   # bitly.shorten(avatar.url).short_url
+ return bitly.shorten("https://www.facebook.com/").short_url
 end
 
 end
