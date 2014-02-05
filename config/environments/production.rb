@@ -64,14 +64,5 @@ FileSharingApp::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  config.paperclip_defaults = {
-  :storage => :s3,
-  :path => "/image/:id/:filename",
 
-  :s3_credentials => {
-    :bucket => "janani_development",
-    :access_key_id => "AKIAJYBWIXLV3SVXG7PA",
-    :secret_access_key => "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"
-  }
-}
 end

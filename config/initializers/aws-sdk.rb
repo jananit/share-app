@@ -1,1 +1,0 @@
-AWS.config(access_key_id: "AKIAJYBWIXLV3SVXG7PA",secret_access_key: "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")
